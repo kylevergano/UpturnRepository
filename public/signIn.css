@@ -1,0 +1,204 @@
+.placeholder {
+    height: 18px;
+    letter-spacing: 0.00px;
+    line-height: 24px;
+    min-height: 18px;
+    white-space: nowrap;
+  }
+  .x-default {
+    align-items: flex-start;
+    background-color: var(--white);
+    border-radius: 10px;
+    display: flex;
+    height: 40px;
+    left: 881px;
+    min-width: 397px;
+    padding: 8px 15px;
+    position: absolute;
+    top: 423px;
+    length:500px;
+  }
+  .x-default-1.x-default {
+    top: 478px;
+  }
+  .default {
+    color: var(--white);
+    font-family: 'Sora', Helvetica;
+    font-size: 24px;
+    height: 21px;
+    left: 934px;
+    letter-spacing: 0.00px;
+    line-height: 24px;
+    position: absolute;
+    text-align: center;
+    top: 630px;
+    white-space: nowrap;
+    width: 294px;
+  }
+  .ellipse-1 {
+    height: 18px;
+    left: 304px;
+    position: absolute;
+    top: 701px;
+    width: 18px;
+  }
+  .ellipse-2 {
+    height: 18px;
+    left: 336px;
+    position: absolute;
+    top: 701px;
+    width: 17px;
+  }
+  .ellipse-3 {
+    height: 18px;
+    left: 367px;
+    position: absolute;
+    top: 701px;
+    width: 18px;
+  }
+  .ellipse-4 {
+    height: 18px;
+    left: 399px;
+    position: absolute;
+    top: 701px;
+    width: 18px;
+  }
+  .fa-project-uptu-logo-on-dark-1 {
+    height: 200px;
+    left: 977px;
+    object-fit: cover;
+    position: absolute;
+    top: 88px;
+    width: 206px;
+  }
+  .signIn {
+    height: 50px;
+    left: 877px;
+    position: absolute;
+    top: 408px;
+   size:200px !important;
+   
+  }
+  .signIn2 {
+    height: 50px;
+    left: 877px;
+    position: relative;
+    top: 108px;
+   size:200px !important;
+  }
+  .group-766 {
+    height: 900px;
+    left: 720px;
+    position: absolute;
+    top: 0px;
+    width: 720px;
+  }
+  .group-82 {
+    height: 308px;
+    left: 206px;
+    position: absolute;
+    top: 180px;
+    width: 308px;
+  }
+  .label {
+    color: var(--white);
+    font-family: 'Sora', Helvetica;
+    font-size: 18px;
+    height: 18px;
+    left: 951px;
+    letter-spacing: 0.00px;
+    position: absolute;
+    text-align: center;
+    top: 701px;
+    width: 260px;
+  }
+  .label-1 {
+    color: var(--white);
+    font-family: 'Sora', Helvetica;
+    font-size: 18px;
+    font-weight: 700;
+    height: 18px;
+    left: 881px;
+    letter-spacing: 0.00px;
+    position: absolute;
+    top: 533px;
+    width: 228px;
+  }
+  .overlap-group {
+    height: 900px;
+    left: 0px;
+    position: absolute;
+    top: 0px;
+    width: 1440px;
+  }
+  .rectangle {
+    height: 62px;
+    left: 933px;
+    position: absolute;
+    top: 610px;
+    width: 294px;
+  }
+  .sign-in {
+    background-color: var(--white);
+    height: 900px;
+    position: relative;
+    width: 1440px;
+  }
+  .span0 {
+    color: rgba(255,255,255,1.0);
+  }
+  .span1 {
+    color: rgba(255,255,255,1.0);
+    font-weight: 700;
+  }
+  .text-1 {
+    color: var(--white);
+    font-family: 'Sora', Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 869px;
+    letter-spacing: 0.00px;
+    position: absolute;
+    text-align: center;
+    top: 348px;
+    width: 423px;
+  }
+  .text-2 {
+    color: rgba(0,87,165,1.0);
+    font-family: 'Sora', Helvetica;
+    font-size: 36px;
+    font-weight: 700;
+    left: 0px;
+    letter-spacing: 0.00px;
+    position: absolute;
+    text-align: center;
+    top: 580px;
+    width: 722px;
+  }
+  
+  @import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+  @import url("https://fonts.googleapis.com/css?family=Sora:400,700|Open+Sans:400");
+  * {
+    box-sizing: border-box;
+  }
+  .container-center-horizontal {
+    pointer-events: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  .container-center-horizontal > * {
+    pointer-events: auto;
+    flex-shrink: 0;
+  }
+  .screen a {
+    text-decoration: none;
+    display: contents;
+  }
+  .valign-text-middle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
