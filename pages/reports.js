@@ -13,7 +13,7 @@ import firebaseClient from "../firebaseClient";
 import firebase from "firebase/app";
 import withReactContent from 'sweetalert2-react-content'
 import 'firebase/storage';
-
+import { ChakraProvider } from "@chakra-ui/react"
 
 
 class Report extends Component {
@@ -226,7 +226,7 @@ class Report extends Component {
         
       }
 
-      
+
 
     render() {
         const { firstName,lastName,email,institution,position,fileURL,description,reportLocation} = this.state;
@@ -235,6 +235,7 @@ class Report extends Component {
       
          
             <>
+          
             
                 <NavbarTwo />
 
@@ -365,6 +366,7 @@ class Report extends Component {
                 </div> */}
 
                 <Footer/>
+          
             </>
         );
     }

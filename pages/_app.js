@@ -12,12 +12,16 @@ import App from 'next/app';
 import Head from 'next/head';
 
 import '../public/signIn.css'
-import Loader from '../components/Shared/Loader';
+// import Loader from '../components/Shared/Loader';
 import GoTop from '../components/Shared/GoTop';
 import {useEffect} from 'react';
 import {useRouter} from 'next/router'
 
 import { ChakraProvider } from "@chakra-ui/react"
+import {firebase} from '../firebase';
+
+
+
 export default class MyApp extends App {
     // Preloader
     state = {
@@ -39,20 +43,20 @@ export default class MyApp extends App {
         
         return (
             <>
-            <ChakraProvider>          
+            {/* <ChakraProvider>           */}
                 {/*user ? <Component {...pageProps} /> : "no user signed in" 
                 <AuthProvider>
                  <Component {...pageProps} />
                 </AuthProvider>
-               
-                {/* <Component {...pageProps} /> */}
+                */}
+                <Component {...pageProps} />
                 
                 {/* Preloader */}
-                <Loader loading={this.state.loading} />
+                {/* <Loader loading={this.state.loading} /> */}
 
                 {/* Go Top Button */}
                 <GoTop />
-            </ChakraProvider>
+            {/* </ChakraProvider> */}
             </>
         );
     }
