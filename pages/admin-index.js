@@ -20,7 +20,7 @@ import {
     Heading,
     useToast,
     Tabs, TabList, TabPanels, Tab, TabPanel
-  } from "@chakra-ui/core";
+  } from "@chakra-ui/react";
   import PageBanner from '../components/Common/PageBanner';
   import {
     Table,
@@ -32,7 +32,44 @@ import {
     Td,
     TableCaption,
   } from "@chakra-ui/react"
+  import {firebase} from '../firebase/index';
+
 class AdminIndex extends Component {
+
+    constructor() {
+        super();
+       
+        this.ref = firebase.firestore().collection('SOLUTIONS'); //reference to firestore
+        this.unsubscribe = null;
+        this.state = {
+            solutions: [], 
+          };
+      }
+      onCollectionUpdate = (querySnapshot) => {
+        const solutions = [];
+        querySnapshot.forEach((doc) => {
+          const {title,location,lastEdited } = doc.data();
+          solutions.push({
+            key: doc.id,
+            doc, // DocumentSnapshot         
+            title,
+            location,
+            lastEdited
+          });
+          
+         
+        });
+        this.setState({
+            solutions
+       });
+       
+    
+    
+      }
+      componentDidMount() {
+  
+        this.unsubscribe = this.ref.onSnapshot(this.onCollectionUpdate);
+      } 
     render() {
         return (
             <>
@@ -41,61 +78,66 @@ class AdminIndex extends Component {
                     pageTitle="Hello Admin" 
                     BGImage="bg-admin"
                 /> 
+                <div className="row justify-content-right">
+                <Button onClick={(e) =>{
+                  e.preventDefault();
+                  
+                }}>&nbsp;Add Solution</Button>
+                </div>
+                
              <div className="bg-fcfbfb ptb-100 pb-60">
                         <div className="row justify-content-center">
                             <div className="col-lg-4 col-sm-6">
                                 <div className="service-card-one">
                              
-                                <Button class="buttons">Manage Solutions</Button><br/>
-                                <Button class="buttons">Manage Resources</Button><br/>
-                                <Button class="buttons">Manage Users</Button><br/>
-                                <Button class="buttons">User Analytics</Button><br/>
-                                <Button class="buttons">Contact submissions</Button><br/>  
+                                <button className="buttons">Manage Solutions</button><br/>
+                                <button className="buttons">Manage Resources</button><br/>
+                                <button className="buttons">Manage Users</button><br/>
+                                <button className="buttons">User Analytics</button><br/>
+                                <button className="buttons">Contact submissions</button><br/>  
                                 
                                 </div>
                             </div>
 
                             <div className="col-lg-8 col-sm-12">
                                 <div className="service-card-one">
-                                <Table variant="simple">
-                                <TableCaption>Imperial to metric conversion factors</TableCaption>
+                                <Table variant="striped" colorScheme="gray">
                                 <Thead>
                                     <Tr>
-                                    <Th>To convert</Th>
-                                    <Th>into</Th>
-                                    <Th isNumeric>multiply by</Th>
+                                    <Th>SOLUTION NAME</Th>
+                                    <Th>LOCATION</Th>
+                                    <Th>LAST EDITED</Th>
+                                    <Th>ACTIONS</Th>
                                     </Tr>
                                 </Thead>
                                 <Tbody>
-                                    <Tr>
-                                    <Td>inches</Td>
-                                    <Td>millimetres (mm)</Td>
-                                    <Td isNumeric>25.4</Td>
-                                    </Tr>
-                                    <Tr>
-                                    <Td>feet</Td>
-                                    <Td>centimetres (cm)</Td>
-                                    <Td isNumeric>30.48</Td>
-                                    </Tr>
-                                    <Tr>
-                                    <Td>yards</Td>
-                                    <Td>metres (m)</Td>
-                                    <Td isNumeric>0.91444</Td>
-                                    </Tr>
-                                </Tbody>
-                                <Tfoot>
-                                    <Tr>
-                                    <Th>To convert</Th>
-                                    <Th>into</Th>
-                                    <Th isNumeric>multiply by</Th>
-                                    </Tr>
-                                </Tfoot>
+                                {
+                                this.state.solutions.map(solution=>{
+                                    console.log("title: " + solution.title) 
+                                    return(
+                                        <Tr>
+                                        <Td>{solution.title}</Td>
+                                        <Td>{solution.location}</Td>
+                                        <Td>{solution.lastEdited}</Td>
+                                        <Td><Button colorScheme="blue" size="xs">
+                                            EDIT
+                                        </Button>&nbsp;
+                                        <Button colorScheme="orange" size="xs">
+                                            DELETE
+                                        </Button>
+                                        </Td>
+                                        </Tr>
+                                    )
+                                })
+                                } 
+                                            
+                                </Tbody>                      
                                 </Table>
                                 </div>
                             </div>
                     </div>
                 </div>
-            
+               
                 <Footer />
 
             </>

@@ -7,17 +7,17 @@ import 'react-accessible-accordion/dist/fancy-example.css';
 import 'react-image-lightbox/style.css';
 import '../public/css/style.css';
 import '../public/css/responsive.css';
-import {AuthProvider} from '../auth'
+
 import App from 'next/app';
 import Head from 'next/head';
-import { useAuth } from "../auth";
+
 import '../public/signIn.css'
 import Loader from '../components/Shared/Loader';
 import GoTop from '../components/Shared/GoTop';
 import {useEffect} from 'react';
 import {useRouter} from 'next/router'
 
-import {ThemeProvider,CSSReset,theme} from '@chakra-ui/core'
+import { ChakraProvider } from "@chakra-ui/react"
 export default class MyApp extends App {
     // Preloader
     state = {
@@ -39,11 +39,8 @@ export default class MyApp extends App {
         
         return (
             <>
-            <ThemeProvider theme={theme}>
-            {/* <CSSReset/> */}
-             
-{/*                
-                user ? <Component {...pageProps} /> : "no user signed in"  */}
+            <ChakraProvider>          
+                {/*user ? <Component {...pageProps} /> : "no user signed in" 
                 <AuthProvider>
                  <Component {...pageProps} />
                 </AuthProvider>
@@ -54,8 +51,8 @@ export default class MyApp extends App {
                 <Loader loading={this.state.loading} />
 
                 {/* Go Top Button */}
-                {/* <GoTop /> */}
-            </ThemeProvider>
+                <GoTop />
+            </ChakraProvider>
             </>
         );
     }

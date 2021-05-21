@@ -13,7 +13,7 @@ import {
     Heading,
     useToast,
     Tabs, TabList, TabPanels, Tab, TabPanel
-  } from "@chakra-ui/core";
+  } from "@chakra-ui/react";
 class NavbarTwo extends Component {
     // Navbar 
     _isMounted = false;
