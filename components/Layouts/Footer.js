@@ -16,6 +16,11 @@ class Footer extends Component {
                         <p style={{color:"white"}}><b>Identify priority climate change solutions fit for your community with Project Upturn.</b></p>
                     </div>
 
+                    <div>
+                        <Link href="/contact">
+                            <a className="btn btn-primary" style={{marginTop:"20px"}}>GET STARTED</a>
+                        </Link>
+                    </div>
                 </div>
             </div>
             

@@ -522,10 +522,10 @@ Navbar CSS
 }
 
 .navbar-area nav .navbar-nav .nav-item a {
-  color: #18181b;
+  color: #646464;
   text-transform: capitalize;
   position: relative;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 15px;
   padding-left: 0;
   padding-right: 0;
@@ -547,11 +547,13 @@ Navbar CSS
 }
 
 .navbar-area nav .navbar-nav .nav-item a:hover, .navbar-area nav .navbar-nav .nav-item a:focus, .navbar-area nav .navbar-nav .nav-item a.active {
-  color: #18181b;
+  color: #003C72!important;
+  font-weight: 800;
 }
 
 .navbar-area nav .navbar-nav .nav-item a:hover::before, .navbar-area nav .navbar-nav .nav-item a:focus::before, .navbar-area nav .navbar-nav .nav-item a.active::before {
-  width: 60%;
+  width: 0%;
+  
 }
 
 .navbar-area nav .navbar-nav .nav-item a i {
@@ -1225,6 +1227,11 @@ Main Banner CSS
 .hero-bgabout {
   background-position: center center;
   background-image: url(/images/static/bannerabout.png);
+}
+
+.hero-bgfeedback {
+  background-position: center center;
+  background-image: url(/images/static/feedbackbanner.png);
 }
 
 .hero-bgabout2 {
@@ -5098,46 +5105,13 @@ Page Title CSS
 .page-title-area .container {
   position: relative;
 }
-.buttons {
-  width: 70%;
-  background-color: #0057A5;
-  border: none;
-  color: white;
-  padding: 22px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
- border-radius: 5px;
- font-size: 25px;
-}
-.buttons:hover {
-  width: 72%;
-  background-color: #0057A5;
-  border: none;
-  color: white;
-  padding: 22px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
-  cursor: pointer;
- border-radius: 5px;
- font-size: 27px;
-}
+
 .page-title-area.bg-one {
   background: transparent url(/images/page-banner1.jpg) right top no-repeat;
   background-size: cover;
   background-position: center center;
 }
-.page-title-area.bg-admin {
-  background: transparent url(/images/adminHeader.png) right top no-repeat;
-  background-size: cover;
-  background-position: center center;
-}
+
 .page-title-area.bg-details {
   background: transparent url(/images/static/blogdetails.png) right top no-repeat;
   background-position: center center;
@@ -5170,6 +5144,20 @@ Page Title CSS
 
 .page-title-area.solutions-bg {
   background-image: url("/images/static/solutionsbg.png");
+
+  background-position: center center;
+  background-size: cover;
+}
+
+.page-title-area.feedback-bg {
+  background-image: url("/images/static/feedbackbanner.png");
+
+  background-position: center center;
+  background-size: cover;
+}
+
+.page-title-area.report-bg {
+  background-image: url("/images/static/reportbanner.png");
 
   background-position: center center;
   background-size: cover;

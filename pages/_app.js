@@ -12,7 +12,7 @@ import App from 'next/app';
 import Head from 'next/head';
 import { useAuth } from "../auth";
 import '../public/signIn.css'
-// import Loader from '../components/Shared/Loader';
+import Loader from '../components/Shared/Loader';
 import GoTop from '../components/Shared/GoTop';
 import {useEffect} from 'react';
 import {useRouter} from 'next/router'
@@ -40,21 +40,21 @@ export default class MyApp extends App {
         return (
             <>
             <ThemeProvider theme={theme}>
-            <CSSReset/>
+            {/* <CSSReset/> */}
              
-               
-                {/*user ? <Component {...pageProps} /> : "no user signed in" 
+{/*                
+                user ? <Component {...pageProps} /> : "no user signed in"  */}
                 <AuthProvider>
                  <Component {...pageProps} />
                 </AuthProvider>
-                */}
-                <Component {...pageProps} />
+               
+                {/* <Component {...pageProps} /> */}
                 
                 {/* Preloader */}
-                {/* <Loader loading={this.state.loading} /> */}
+                <Loader loading={this.state.loading} />
 
                 {/* Go Top Button */}
-                <GoTop />
+                {/* <GoTop /> */}
             </ThemeProvider>
             </>
         );

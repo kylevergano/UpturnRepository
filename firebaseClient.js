@@ -1,5 +1,7 @@
 //const firebase = require("firebase");
 import firebase from "firebase";
+import 'firebase/storage';
+
 const FIREBASE_CONFIG = {
     apiKey: "AIzaSyD-3oIaxyJz_O7OLKH6p6Uf3WLGkTfXGzA",
     authDomain: "upturndb.firebaseapp.com",
@@ -12,8 +14,12 @@ const FIREBASE_CONFIG = {
 };
 
 
+
+
 export default function firebaseClient(){
     if(!firebase.apps.length){
         firebase.initializeApp(FIREBASE_CONFIG);
     }
 }
+
+
