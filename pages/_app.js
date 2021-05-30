@@ -18,6 +18,10 @@ import {useEffect} from 'react';
 import {useRouter} from 'next/router'
 
 import { ChakraProvider } from "@chakra-ui/react"
+import {firebase} from '../firebase';
+
+
+
 export default class MyApp extends App {
     // Preloader
     state = {
@@ -39,7 +43,7 @@ export default class MyApp extends App {
         
         return (
             <>
-            <ChakraProvider>          
+            {/* <ChakraProvider>           */}
                 {/*user ? <Component {...pageProps} /> : "no user signed in" 
                 <AuthProvider>
                  <Component {...pageProps} />
@@ -52,7 +56,7 @@ export default class MyApp extends App {
 
                 {/* Go Top Button */}
                 <GoTop />
-            </ChakraProvider>
+            {/* </ChakraProvider> */}
             </>
         );
     }

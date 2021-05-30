@@ -14,37 +14,22 @@ class MainBanner extends Component {
     render() {
         return (
             <>
-                <div className="hero-banner it-banner overly hero-bg4">
+                <div className="hero-banner hero-bg4">
                     <div className="d-table">
                         <div className="d-table-cell">
                             <div className="container">
-                                <div className="row align-items-center">
-                                    <div className="col-lg-6">
-                                        <div className="main-banner-content">
-                                            <h1>We're an IT agency</h1>
+                                <div className="row align-items-center" style={{textAlign:"center"}}>
+                                 
+                                  
+                                            <h1 style={{color:"white"}}>Real solutions for real climate problems</h1>
                                                 
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                                            <p style={{color:"white"}}>Find tested and science-based solutions for climate change challenges in your local community</p>
                                         
-                                            <Link href="/contact">
-                                                <a className="btn btn-primary">Get Started</a>
-                                            </Link>
+                                   
 
-                                            <Link href="/#play-video">
-                                                <a
-                                                    onClick={e => {e.preventDefault(); this.openModal()}}
-                                                    className="btn btn-secondary"
-                                                > 
-                                                    <i className="icofont-ui-play"></i> How it works
-                                                </a>
-                                            </Link>
-                                        </div> 
-                                    </div>
-
-                                    <div className="col-lg-6">
-                                        <div className="animate-banner-image">
-                                            <img src="/images/animate-banner-img1.jpg" alt="Animate image" />
-                                        </div>
-                                    </div>
+                                          
+                                     
+                                   
                                 </div>        
                             </div>
                         </div>

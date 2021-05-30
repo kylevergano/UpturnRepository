@@ -10,10 +10,10 @@ class Blog3 extends Component {
             <>
                 <NavbarTwo />
 
-                <PageBanner 
+                {/* <PageBanner 
                     pageTitle="Blog Left Sidebar" 
                     BGImage="bg-five"
-                />  
+                />   */}
 
                 <BlogLeftSidebar />
                 
