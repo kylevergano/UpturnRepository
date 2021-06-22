@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 
+
 class RightSolutions extends Component {
     render() {
         return (

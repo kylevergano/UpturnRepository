@@ -87,14 +87,7 @@ class Carousel extends Component {
                                                                   </div>
                                                               </div>
                           
-                                                              {/* <div className="service-read-more">
-                                                                  <Link href="/service-details">
-                                                                      <a className="btn btn-primary">
-                                                                          <i className="icofont-tasks"></i> Read more
-                                                                      </a>
-                                                                  </Link>
-                                                              </div> */}
-                                                        
+                                                            
                                                       </div>
                                                   </div>
                                               </div>
