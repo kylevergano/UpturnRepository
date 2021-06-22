@@ -4093,6 +4093,164 @@ Fun Facts CSS
   margin: 0;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.ilinks-area {
+  position: relative;
+  z-index: 1;
+}
+
+.ilinks-area .map-bg {
+  position: absolute;
+  z-index: -1;
+  top: 120px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.ilink {
+  text-align: center;
+  background: white;
+  padding: 20px 35px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+
+}
+
+.ilink i {
+  font-size: 30px;
+  color: #ff2c9c;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  position: relative;
+  margin-bottom: 20px;
+  background: #F6F4FD;
+  border-radius: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.ilink h3 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.ilink:hover {
+  margin-top: -5px;
+}
+
+
+
+.ilinks1-area {
+  position: relative;
+  z-index: 1;
+}
+
+.ilinks1-area .map-bg {
+  position: absolute;
+  z-index: -1;
+  top: 120px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+.ilink1 {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 30px 0 25px;
+  border-radius: 5px;
+  -webkit-transition: all 0.6s ease;
+  transition: all 0.6s ease;
+}
+
+.ilink1 i {
+  font-size: 30px;
+  color: #ff2c9c;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+  margin: auto;
+  position: relative;
+  margin-bottom: 20px;
+  background: #F6F4FD;
+  border-radius: 100%;
+  text-align: center;
+  display: inline-block;
+}
+
+.ilink1 h3 {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.ilink1:hover {
+  margin-top: -5px;
+}
+
+
+
+.ilink-card {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.ilink-card i {
+  font-size: 60px;
+  line-height: 1;
+  margin-bottom: 15px;
+  display: inline-block;
+  color: #ff2c9c;
+}
+
+.ilink-card h3 {
+  font-size: 50px;
+  line-height: 1;
+  font-weight: bold;
+}
+
+.ilink-card h3 span {
+  position: absolute;
+  font-size: 35px;
+  margin-left: 3px;
+}
+
+.ilink-card p {
+  margin: 0;
+}
+
 /*================================================
 Subscribe CSS
 =================================================*/
@@ -5151,6 +5309,20 @@ Page Title CSS
 
 .page-title-area.feedback-bg {
   background-image: url("/images/static/feedbackbanner.png");
+
+  background-position: center center;
+  background-size: cover;
+}
+
+.page-title-area.glossary-bg {
+  background-image: url("/images/static/glossarybanner.png");
+
+  background-position: center center;
+  background-size: cover;
+}
+
+.page-title-area.links-bg {
+  background-image: url("/images/static/linksbanner.png");
 
   background-position: center center;
   background-size: cover;
@@ -6429,4 +6601,5 @@ Go Top CSS
   color: #ffffff;
   background: #ff2c9c;
 }
+/*# sourceMappingURL=style.css.map */
 /*# sourceMappingURL=style.css.map */
