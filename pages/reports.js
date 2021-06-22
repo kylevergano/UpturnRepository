@@ -9,13 +9,12 @@ import Dropzone from 'react-dropzone';
 import { Upload, Loader} from 'react-feather';
 import Swal, { SweetAlertIcon, SweetAlertOptions, SweetAlertResult } from 'sweetalert2';
 import { Spinner } from 'reactstrap';
-import firebaseClient from "../firebaseClient";
-import firebase from "firebase/app";
 import withReactContent from 'sweetalert2-react-content'
-import 'firebase/storage';
-import { ChakraProvider } from "@chakra-ui/react"
+import { ChakraProvider, useRadioGroup } from "@chakra-ui/react"
+import { useRouter } from 'next/router'
+import ReactStars from "react-rating-stars-component";
 
-
+import {firebase} from '../firebase'
 class Report extends Component {
 
     constructor(props){
@@ -24,6 +23,17 @@ class Report extends Component {
         this.ref = firebase.firestore().collection('REPORTS'); 
 
         this.state ={
+
+            firstName:'',
+            lastName:'',
+            email: '',
+            institution:'',
+            position:'',
+            reportLocation:'',
+            fileURL:'',
+            description:'',
+
+
             MySwal:withReactContent(Swal),
             uploadstyle: {
                 textAlign:"center",
@@ -50,19 +60,10 @@ class Report extends Component {
                 </div>
                 </section>
             )}
-            </Dropzone>,
-
-            firstName:'',
-            lastName:'',
-            email: '',
-            institution:'',
-            position:'',
-            reportLocation:'',
-            fileURL:'',
-            description:'',
+            </Dropzone>,         
         }
 
-        this.setState({uploadbutton:null})
+        // this.setState({uploadbutton:null})
        
 
         // this.save = this.save.bind(this);
@@ -107,131 +108,77 @@ class Report extends Component {
     }
 
     
-    async save(){
+     save = async(e) =>{
+                 e.preventDefault();
+
+                 let self = this;
+
+                const storageRef = firebase.storage().ref(`REPORTS/${this.state.file.path}`);
+                
+
+                const uploadTaskSnapshot = await storageRef.put(this.state.file);
+
+                console.log("uploaded1");
+        
+                const downloadURL = await uploadTaskSnapshot.ref.getDownloadURL();
+
+                console.log("uploaded2");
+
+                console.log(downloadURL);
+        
+                self = downloadURL;
+
+        
+               
+        
               console.log("save");
-               await firebase.firestore().collection('REPORTS').add({
-                title:"sample",
-                level:"sample",
+               await firebase.firestore().collection('REPORTS').add({     
+                // firstName: this.state.firstName,
+                // lastName: this.state.lastName,
+                // email: this.state.email,
+                // institution: this.state.institution,
+                // position: this.state.position,
+                reportlocation: this.state.reportLocation,
+                fileURL: downloadURL,
+                description: this.state.description,
               
                 }).then(
                console.log("entered")
+               
+
+               
                 )
                 .catch((error) => {
                 console.error("Error adding document: ", error);
                 });
-
-        // this.setState({
-        //     uploadbutton: null,
-        //     loading: 
-        //     <center>
-        //         <p style={{marginBottom:"7px", color:"black", textAlign:"center", fontSize:"12px" }}>Uploading...</p>
-        //         <p><Spinner size="lg" color="primary" /></p>
-        //     </center>,
-        // })
-     
-        // let randomnumber = Math.floor(Math.random() * 1000000); 
-        // let bucketname ='reports';
-       
-
-   
-
-            // try {
-
-            //     await firebase
-            //     .storage()
-            //     .ref(`${bucketname}/${this.state.file.path}`)
-            //     .put(this.state.file)
-            //     .signInWithEmailAndPassword(email, pass)
-            //     .catch(function (error) {
-            //       const message = error.message;
-            //       toast({
-            //         title: "An error occurred.",
-            //         description: message,
-            //         status: "error",
-            //         duration: 9000,
-            //         isClosable: true,
-            //       });
-            //     });
-
-          
-                // console.log("asdasdasdasdasd",firebase.storage.ref());
-                // console.log("enter try");
-                
-                
-                // let self = this;
-
-                // const storageRef = firebase.storage().ref(`${bucketname}/${this.state.file.path}`);
-                
-                // console.log(firebase.storage.ref());
-
-                // const uploadTaskSnapshot = await storageRef.put(this.state.file);
-
-                // console.log("uploaded1");
-        
-                // const downloadURL = await uploadTaskSnapshot.ref.getDownloadURL();
-
-                // console.log("uploaded2");
-
-                // console.log(downloadURL);
-        
-                // self = downloadURL;
-
-    
-                // this.setState({
-                //     downloadURL:downloadURL,
-                  
-                // })
-
-                // this.setState({
-                   
-                //     loading:   
                     
-                //     <Dropzone onDrop={acceptedFiles => this.handleOnDrop(acceptedFiles)}>
-                //     {({getRootProps, getInputProps}) => (
-                //      <div className ="col-lg-6 col-md-6">
-                //         <div  {...getRootProps()}>
-                //             <input {...getInputProps()} />
-                        
-                //             <p style={{textAlign:"center"}}><Upload style={this.state.uploadstyle}/></p>
-                //             <p style={{marginBottom:"-3px", color:"black", textAlign:"center", fontSize:"12px" }}>click to upload file or drag file here</p>
-                          
-                //         </div>
-                //         </div>
-                //     )}
-                //     </Dropzone>,
-                // })
-
-                // this.setState({
-                //     file: null,
-                // })
-                
-               
-                // this.props.onHide(this.props.title,this.props.body,this.state.downloadURL);
-        
-            //   } catch (error) {
-               
-            //     alert("Image uploading failed!");
-            //   }
-
-          
-
+                    return this.state.MySwal.fire({
+                        icon: 'success',
+                        title: 'Your response has been submitted and recorded.',
+                        text: 'Thanks for helping us improve Project Upturn!',
+                        confirmButtonText: 'BACK TO THE SITE',
+                      }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.href = '/it-agency';
+                        }
+                      })
     }
-
 
     onChange = (e) => {
         const state = this.state
         state[e.target.name] = e.target.value;
         this.setState(state);
-       
         
       }
 
 
 
     render() {
-        const { firstName,lastName,email,institution,position,fileURL,description,reportLocation} = this.state;
-        firebaseClient();
+        // const { firstName,lastName,email,institution,position,fileURL,description,reportLocation} = this.state;
+        const { firstName} = this.state;
         return (
+
+            
       
          
             <>
@@ -273,46 +220,39 @@ class Report extends Component {
                    <div style={{marginTop:"80px"}}></div>
              
 
-                <form id="contactForm" >
+                <form>
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="firstname" id="firstname" className="form-control" placeholder="First Name" required />
-                                </div>
-                            </div>
-
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="firstname" id="lastname" className="form-control" placeholder="Last Name" required />
-                                </div>
-                            </div>
-
-
                             {/* <div className="col-lg-4">
                                 <div className="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" className="form-control" placeholder="Phone" required />
+                                    <input type="text" name="firstname"  className="form-control" onChange={e => this.setState({ firstName: e.target.value })} placeholder="First Name" value={firstName}  required />
                                 </div>
-                            </div> */}
+                            </div>
+
+                            <div className="col-lg-4">
+                                <div className="form-group">
+                                    <input type="text" name="lastname" className="form-control" onChange={e => this.setState({ lastName: e.target.value })} placeholder="Last Name" required />
+                                </div>
+                            </div>
 
                             <div className="col-lg-4">
                                 <div className="form-group">
                                     <input type="email"  
-                                    name="email" id="email" className="form-control" placeholder="Email Address" required />
+                                    name="email" id="email" className="form-control" onChange={e => this.setState({ email: e.target.value })} placeholder="Email Address" required />
                                 </div>
                             </div>
 
                             <div className="col-lg-4">
                                 <div className="form-group">
-                                    <input type="text" name="institution" id="firstname" className="form-control" placeholder="Institution" required />
+                                    <input type="text" name="institution" id="institution" className="form-control" onChange={e => this.setState({ institution: e.target.value })} placeholder="Institution"  required />
                                 </div>
                             </div>
 
                             <div className="col-lg-4">
                                 <div className="form-group">
-                                    <input type="text" name="position" id="lastname" className="form-control" placeholder="Position" required />
+                                    <input type="text" name="position" id="position" className="form-control" onChange={e => this.setState({ position: e.target.value })} placeholder="Position" required />
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* <div className="col-lg-6">
                                 <div className="form-group">
@@ -322,12 +262,14 @@ class Report extends Component {
 
                             <div className="col-lg-8">
                                 <div className="form-group">
-                                    <input type="text" name="reportlocation" id="lastname" className="form-control" placeholder="In which page of the website did you find an error?" required />
+                                    <input type="text" name="reportlocation" id="location" className="form-control" onChange={e => this.setState({ reportLocation: e.target.value })} placeholder="In which page of the website did you find an error?" required />
                                 </div>
                             </div>
 
                             <div className ="col-lg-5">
-                                <div className="col-lg-12 col-md-6">
+                            <p>Please help us fix the error by uploading a screenshot of it</p>
+                                <div className="col-lg-12 col-md-12">
+                                    
                                     <div style={{marginBottom:"20px"}}>
                                       {this.state.loading}
                                     </div>
@@ -335,10 +277,17 @@ class Report extends Component {
                                 
                             </div>
 
-                            <div className="col-lg-3 col-md-3">
-                                    <div style={{marginBottom:"20px"}}>
-                                    <p style={{marginBottom:"-10px", color:"#646464", textAlign:"left", fontSize:"14px" }}>{this.state.file.path}</p>
-                                    </div>
+                            <div className="col-lg-3 col-md-12">
+
+                            <div>
+                                
+                                <div style ={ {border:"2px solid #646464", borderRadius:"7px", height:"119px", marginTop:"43px"}}>
+                                    
+                                    <p style={{marginTop:"40px", color:"#646464", textAlign:"center", fontSize:"12px" }}>{this.state.file.path}</p>
+                                   
+                                </div>
+                            </div>
+                                  
                                 </div>
                             
                            
@@ -346,7 +295,7 @@ class Report extends Component {
 
                             <div className="col-lg-12 col-md-12">
                                 <div className="form-group">
-                                    <textarea name="message" className="form-control" id="message" rows="8" placeholder="What do you find most useful about the website? *" required></textarea>
+                                    <textarea name="message" className="form-control" id="message" rows="8" placeholder="Please describe the error" onChange={e => this.setState({ description: e.target.value })} required></textarea>
                                 </div>
                             </div>
 
@@ -354,9 +303,13 @@ class Report extends Component {
                             <div className="col-lg-12 col-md-12">
                                 <button type="submit" className="btn btn-primary" >SUBMIT</button>
                             </div>
+
+                            
                         </div>
                     </div>
                 </form>
+
+          
 
                 <div style={{marginBottom:"80px"}}></div>
             </div>
