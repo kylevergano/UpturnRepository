@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import NavbarTwo from '../components/Layouts/NavbarTwo';
 import PageBanner from '../components/Common/PageBanner';
-import BlogLeftSidebar from '../components/Blog/BlogLeftSidebar';
 import Footer from '../components/Layouts/Footer';
+import BlogLeftSidebar from '../components/Blog/BlogLeftSidebar';
+
 
 class Blog3 extends Component {
     render() {
