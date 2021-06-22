@@ -7,8 +7,9 @@ import TeamStyleThree from '../components/Common/TeamStyleThree';
 import Feedback from '../components/Common/Feedback';
 import Partner from '../components/Common/Partner';
 import CtaAreaTwo from '../components/Common/CtaAreaTwo';
-import Footer from '../components/Layouts/Footer';
 import Link from 'next/link';
+import Footer from '../components/Layouts/Footer';
+
 
 class Aabout extends Component {
     render() {

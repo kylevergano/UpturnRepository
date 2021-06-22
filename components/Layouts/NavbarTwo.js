@@ -320,7 +320,7 @@ class NavbarTwo extends Component {
                                     </li> */}
 
                                     <li className="nav-item">
-                                        <Link  href="/it-agency"activeClassName="active">
+                                        <Link  href="/#"activeClassName="active">
                                             <a className="nav-link">HOME</a>
                                         </Link>
                                     </li>

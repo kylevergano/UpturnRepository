@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Link from 'next/link';
 
+
 class FooterSignup extends Component {
     render() {
         return (
