@@ -1,125 +1,99 @@
 import React, { Component } from 'react';
-import NavbarTwo from '../components/Layouts/NavbarTwo';
-import PageBanner from '../components/Common/PageBanner';
-import ContactInfo from '../components/Contact/ContactInfo';
-import ContactForm from '../components/Contact/ContactForm';
-import Newsletter from '../components/Common/Newsletter';
-import Footer from '../components/Layouts/Footer';
+import NavbarTwo from '../../components/Layouts/NavbarTwo';
+import PageBanner from '../../components/Common/PageBanner';
+import ContactInfo from '../../components/Contact/ContactInfo';
+import ContactForm from '../../components/Contact/ContactForm';
+import Newsletter from '../../components/Common/Newsletter';
+import Footer from '../../components/Layouts/Footer';
+import {firebase} from '../../firebase';
 
-class Contact extends Component {
+class Glossary extends Component {
+
+
+    state = {
+
+        glossary: null
+    
+    }
+
+    async componentDidMount(){
+
+        const linkSnapshot = await firebase.firestore().collection('GLOSSARY').get()
+        const glossaryContainer = [];
+
+        linkSnapshot.forEach (doc => {      
+                glossaryContainer.push(doc);
+        });
+
+                this.setState({
+                    glossary: glossaryContainer
+                });
+
+    }
+
     render() {
         return (
             <>
                 <NavbarTwo />
-                {/* <PageBanner  
-                    BGImage="feedback-bg"
-                />   */}
-                 <div className="page-title-area feedback-bg">
+               
+                 <div className="page-title-area glossary-bg">
                     <div className="d-table">
                         <div className="d-table-cell">
                             <div className="container">
                                 <div className="row align-items-center" style={{textAlign:"left"}}>
-                                            <h1 style={{color:"white"}}>Give Your Feedback</h1>
-                                            <p style={{color:"white"}}>Let us know your thoughts about the platform and help us improve by answering our survey.</p>
+                                            <h1 style={{color:"white"}}>Glossary</h1>
+                                            <p style={{color:"white"}}>Here is a list of terms related to climate change and their definitions.</p>
                                 </div>        
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* <div className="page-title-area feedback-bg">
-                <div className="d-table">
-                    <div className="d-table-cell">
-                        <div className="container">
-                            <h2>Give Your Feedback</h2>
-                        </div>
+
+                <section className="ilinks-area ptb-100 bg-ffffff">
+                    <div className="container">
+                        <div className="row justify-content-left" style={{marginBottom:"50px"}}>  
+                            <div className="col-lg-4 col-sm-6">
+                                <p style={{color:"#0057A5", fontSize:"24px"}}><b>TERM</b></p>
+
+                            </div>
+                            <div className="col-lg-8 col-sm-6">
+                                <p style={{color:"#F5B100", fontSize:"24px"}}><b>DEFINITION</b></p>
+                            </div>
+                        </div>         
+
+
+                        {   
+                            this.state.glossary &&
+                            this.state.glossary.map(doc => {
+                                return(
+                                    <div className="row justify-content-left" style={{borderBottom:"1px solid #D6D6D6", marginBottom:"20px"}}>  
+                                    <div className="col-lg-4 col-sm-6">
+                                        <p style={{color:"black", fontSize:"18px"}}>{doc.data().term}</p>
+        
+                                    </div>
+                                    <div className="col-lg-8 col-sm-6">
+                                        <p style={{color:"black", fontSize:"18px"}}>{doc.data().definition}</p>
+                                    </div>
+                                </div>   
+
+                                    )
+                                }
+                            )
+
+
+                        }
+
+                        
+                        
+                        
+                          
+                        
+                                           
                     </div>
-                </div>
-                </div> */}
-            
-                {/* <ContactInfo /> */}
+                </section>
                 
-                <div className="contact-form">
-                   <div style={{marginTop:"80px"}}></div>
              
 
-                <form id="contactForm">
-                    <div className="container">
-                        <div className="row">
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="firstname" id="firstname" className="form-control" placeholder="First Name" required />
-                                </div>
-                            </div>
-
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="firstname" id="lastname" className="form-control" placeholder="Last Name" required />
-                                </div>
-                            </div>
-
-
-                            {/* <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" className="form-control" placeholder="Phone" required />
-                                </div>
-                            </div> */}
-
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="email"  
-                                    name="email" id="email" className="form-control" placeholder="Email Address" required />
-                                </div>
-                            </div>
-
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="institution" id="firstname" className="form-control" placeholder="Institution" required />
-                                </div>
-                            </div>
-
-                            <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="position" id="lastname" className="form-control" placeholder="Position" required />
-                                </div>
-                            </div>
-
-                            {/* <div className="col-lg-6">
-                                <div className="form-group">
-                                    <input type="text" name="msg_subject" id="msg_subject" className="form-control" placeholder="Subject" required />
-                                </div>
-                            </div> */}
-
-                            <div className="col-lg-12 col-md-12">
-                                <div className="form-group">
-                                    <textarea name="message" className="form-control" id="message" rows="8" placeholder="What do you find most useful about the website? *" required></textarea>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-12 col-md-12">
-                                <div className="form-group">
-                                    <textarea name="message" className="form-control" id="message" rows="8" placeholder="What else would you like to see on the website? *" required></textarea>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-12 col-md-12">
-                                <div className="form-group">
-                                    <textarea name="message" className="form-control" id="message" rows="8" placeholder="Comments & Suggestions" required></textarea>
-                                </div>
-                            </div>
-
-                            <div className="col-lg-12 col-md-12">
-                                <button type="submit" className="btn btn-primary">SUBMIT</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-
-                <div style={{marginBottom:"80px"}}></div>
-            </div>
-{/* 
-                <div className="ptb-100">
-                    <Newsletter />
-                </div> */}
 
                 <Footer/>
             </>
@@ -127,4 +101,4 @@ class Contact extends Component {
     }
 }
 
-export default Contact;
+export default Glossary;

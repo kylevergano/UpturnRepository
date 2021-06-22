@@ -12,6 +12,7 @@ import { Spinner } from 'reactstrap';
 import withReactContent from 'sweetalert2-react-content'
 import { ChakraProvider, useRadioGroup } from "@chakra-ui/react"
 import { useRouter } from 'next/router'
+import ReactStars from "react-rating-stars-component";
 
 import {firebase} from '../firebase'
 class Report extends Component {
@@ -132,11 +133,11 @@ class Report extends Component {
         
               console.log("save");
                await firebase.firestore().collection('REPORTS').add({     
-                firstName: this.state.firstName,
-                lastName: this.state.lastName,
-                email: this.state.email,
-                institution: this.state.institution,
-                position: this.state.position,
+                // firstName: this.state.firstName,
+                // lastName: this.state.lastName,
+                // email: this.state.email,
+                // institution: this.state.institution,
+                // position: this.state.position,
                 reportlocation: this.state.reportLocation,
                 fileURL: downloadURL,
                 description: this.state.description,
@@ -222,7 +223,7 @@ class Report extends Component {
                 <form>
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-4">
+                            {/* <div className="col-lg-4">
                                 <div className="form-group">
                                     <input type="text" name="firstname"  className="form-control" onChange={e => this.setState({ firstName: e.target.value })} placeholder="First Name" value={firstName}  required />
                                 </div>
@@ -233,13 +234,6 @@ class Report extends Component {
                                     <input type="text" name="lastname" className="form-control" onChange={e => this.setState({ lastName: e.target.value })} placeholder="Last Name" required />
                                 </div>
                             </div>
-
-
-                            {/* <div className="col-lg-4">
-                                <div className="form-group">
-                                    <input type="text" name="phone_number" id="phone_number" className="form-control" placeholder="Phone" required />
-                                </div>
-                            </div> */}
 
                             <div className="col-lg-4">
                                 <div className="form-group">
@@ -258,7 +252,7 @@ class Report extends Component {
                                 <div className="form-group">
                                     <input type="text" name="position" id="position" className="form-control" onChange={e => this.setState({ position: e.target.value })} placeholder="Position" required />
                                 </div>
-                            </div>
+                            </div> */}
 
                             {/* <div className="col-lg-6">
                                 <div className="form-group">

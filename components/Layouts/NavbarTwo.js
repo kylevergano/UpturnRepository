@@ -360,6 +360,28 @@ class NavbarTwo extends Component {
                                         </ul>
                                     </li>
 
+                                    <li className="nav-item">
+                                        <Link href="/#">
+                                            <a className="nav-link" onClick={e => e.preventDefault()}>
+                                                RESOURCES <i className="icofont-thin-down"></i>
+                                            </a>
+                                        </Link>
+
+                                        <ul className="dropdown-menu">
+                                            <li className="nav-item">
+                                                <Link href="/Resources/ImportantLinks" activeClassName="active">
+                                                    <a className="nav-link">Important Links</a>
+                                                </Link>
+                                            </li>
+
+                                            <li className="nav-item">
+                                                <Link href="/Resources/Glossary" activeClassName="active">
+                                                    <a className="nav-link">Glossary</a>
+                                                </Link>
+                                            </li>
+                                        </ul>
+                                    </li>
+
 
                                     {/* <li className="nav-item">
                                         <Link  href="/it-agency"activeClassName="active">
