@@ -40,7 +40,7 @@ export default class MyApp extends App {
         
         return (
             <>
-            {/* <ChakraProvider>           */}
+         
                 {/*user ? <Component {...pageProps} /> : "no user signed in" 
                 <AuthProvider>
                  <Component {...pageProps} />
@@ -53,7 +53,7 @@ export default class MyApp extends App {
 
                 {/* Go Top Button */}
                 <GoTop />
-            {/* </ChakraProvider> */}
+    
             </>
         );
     }
