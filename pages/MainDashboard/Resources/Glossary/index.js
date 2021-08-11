@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import NavbarTwo from '../../components/Layouts/NavbarTwo';
-import PageBanner from '../../components/Common/PageBanner';
-import ContactInfo from '../../components/Contact/ContactInfo';
-import ContactForm from '../../components/Contact/ContactForm';
-import Newsletter from '../../components/Common/Newsletter';
-import Footer from '../../components/Layouts/Footer';
-import {firebase} from '../../firebase';
+import NavbarTwo from '../../../../components/Layouts/NavbarTwo';
+import PageBanner from '../../../../components/Common/PageBanner';
+import ContactInfo from '../../../../components/Contact/ContactInfo';
+import ContactForm from '../../../../components/Contact/ContactForm';
+import Newsletter from '../../../../components/Common/Newsletter';
+import Footer from '../../../../components/Layouts/Footer';
+import {firebase} from '../../../../firebase';
 
 class Glossary extends Component {
 

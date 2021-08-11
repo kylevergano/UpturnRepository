@@ -14,7 +14,7 @@ import Select from 'react-select';
 import { Search, ArrowRight, Info } from 'react-feather';
 
 const GOOGLE_MAPS_API_KEY = 'AIzaSyCduzjVWYut9ma12RSeU8uh9MwQWqHX51Y';
-class BlogRightSidebar extends Component {
+class SolutionMain extends Component {
   state = {
     solutions: null,
   };
@@ -1215,4 +1215,4 @@ const Solutions = () => {
   );
 };
 
-export default Solutions;
+export default SolutionMain;

@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import NavbarTwo from '../components/Layouts/NavbarTwo';
-import PageBanner from '../components/Common/PageBanner';
-import Footer from '../components/Layouts/Footer';
-import BlogLeftSidebar from '../components/Blog/BlogLeftSidebar';
+import NavbarTwo from '../../../components/Layouts/NavbarTwo';
+import PageBanner from '../../../components/Common/PageBanner';
+import Footer from '../../../components/Layouts/Footer';
+import SolutionMain from './Components/SolutionMain1';
 
 
-class Blog3 extends Component {
+class Solutions extends Component {
     render() {
         return (
             <>
@@ -16,7 +16,7 @@ class Blog3 extends Component {
                     BGImage="bg-five"
                 />   */}
 
-                <BlogLeftSidebar />
+                <SolutionMain />
                 
                 <Footer/>
             </>
@@ -24,4 +24,4 @@ class Blog3 extends Component {
     }
 }
 
-export default Blog3;
+export default Solutions;
