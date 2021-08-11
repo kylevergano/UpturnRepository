@@ -326,13 +326,13 @@ class NavbarTwo extends Component {
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link  href="/about"activeClassName="active">
+                                        <Link  href="/MainDashboard/About"activeClassName="active">
                                             <a className="nav-link">ABOUT</a>
                                         </Link>
                                     </li>
 
                                     <li className="nav-item">
-                                        <Link  href="/blog3"activeClassName="active">
+                                        <Link  href="/MainDashboard/Solutions"activeClassName="active">
                                             <a className="nav-link">SOLUTIONS</a>
                                         </Link>
                                     </li>
@@ -347,13 +347,13 @@ class NavbarTwo extends Component {
 
                                         <ul className="dropdown-menu">
                                             <li className="nav-item">
-                                                <Link href="/contact" activeClassName="active">
+                                                <Link href="/MainDashboard/Contact/Feedbacks" activeClassName="active">
                                                     <a className="nav-link">Give a Feedback</a>
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
-                                                <Link href="/reports" activeClassName="active">
+                                                <Link href="/MainDashboard/Contact/Reports" activeClassName="active">
                                                     <a className="nav-link">Report an Error</a>
                                                 </Link>
                                             </li>
@@ -369,13 +369,13 @@ class NavbarTwo extends Component {
 
                                         <ul className="dropdown-menu">
                                             <li className="nav-item">
-                                                <Link href="/Resources/ImportantLinks" activeClassName="active">
+                                                <Link href="/MainDashboard/Resources/Links" activeClassName="active">
                                                     <a className="nav-link">Important Links</a>
                                                 </Link>
                                             </li>
 
                                             <li className="nav-item">
-                                                <Link href="/Resources/Glossary" activeClassName="active">
+                                                <Link href="/MainDashboard/Resources/Glossary" activeClassName="active">
                                                     <a className="nav-link">Glossary</a>
                                                 </Link>
                                             </li>
@@ -390,7 +390,7 @@ class NavbarTwo extends Component {
                                     </li> */}
 
                                     <li className="nav-item">
-                                        <Link  href="login"activeClassName="active">
+                                        <Link  href="/login"activeClassName="active">
                                             <a className="nav-link">SIGN IN</a>
                                         </Link>
                                     </li>

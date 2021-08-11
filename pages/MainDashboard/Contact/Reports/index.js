@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import NavbarTwo from '../components/Layouts/NavbarTwo';
-import PageBanner from '../components/Common/PageBanner';
-import ContactInfo from '../components/Contact/ContactInfo';
-import ContactForm from '../components/Contact/ContactForm';
-import Newsletter from '../components/Common/Newsletter';
-import Footer from '../components/Layouts/Footer';
+import NavbarTwo from '../../../../components/Layouts/NavbarTwo';
+import PageBanner from '../../../../components/Common/PageBanner';
+import ContactInfo from '../../../../components/Contact/ContactInfo';
+import ContactForm from '../../../../components/Contact/ContactForm';
+import Newsletter from '../../../../components/Common/Newsletter';
+import Footer from '../../../../components/Layouts/Footer';
 import Dropzone from 'react-dropzone';
 import { Upload, Loader} from 'react-feather';
 import Swal, { SweetAlertIcon, SweetAlertOptions, SweetAlertResult } from 'sweetalert2';
@@ -14,7 +14,7 @@ import { ChakraProvider, useRadioGroup } from "@chakra-ui/react"
 import { useRouter } from 'next/router'
 import ReactStars from "react-rating-stars-component";
 
-import {firebase} from '../firebase'
+import {firebase} from '../../../../firebase'
 class Report extends Component {
 
     constructor(props){
